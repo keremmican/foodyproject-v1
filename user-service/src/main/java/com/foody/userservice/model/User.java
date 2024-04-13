@@ -7,7 +7,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import com.foody.commonlib.model.BaseEntity;
+import com.foody.commonlib.base.BaseEntity;
 
 @Getter
 @Setter

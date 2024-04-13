@@ -1,4 +1,4 @@
-package com.foody.commonlib.model;
+package com.foody.commonlib.base;
 
 import jakarta.persistence.*;
 import lombok.Getter;
