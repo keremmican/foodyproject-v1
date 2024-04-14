@@ -23,6 +23,7 @@ a full project.
 2. Next I will add some technologies (V2):
    1. Kafka
    2. ELK Stack
+   3. Config Server (Git)
 3. Next I will change some technologies (V3):
    1. gRPC for communication between MS.
    2. Config Server (Vault)
