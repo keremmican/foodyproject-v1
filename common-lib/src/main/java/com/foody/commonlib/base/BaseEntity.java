@@ -21,7 +21,6 @@ public class BaseEntity implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
-    @GeneratedValue
     @Column(name = "id", updatable = false, nullable = false)
     protected Long id;
 }

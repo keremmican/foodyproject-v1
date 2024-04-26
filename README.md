@@ -10,8 +10,7 @@ guides (or comments) for a specific food from a specific menu
 from a restaurant. Or they can write guides & comments for a restaurant.
 
 Guide is a whole different feature, but I want to include it for some
-challenge for now. Later I need to add comment service if I want to make
-a full project.
+challenge for now.
 
 ## What am I going to do iteratively?
 1. Build an application using basic and common microservice standards (V1):
@@ -20,10 +19,12 @@ a full project.
    3. PostgreSql, MongoDB, Redis
    4. Docker
    5. JUnit
+   6. Error handling
 2. Next I will add some technologies (V2):
    1. Kafka
    2. ELK Stack
    3. Config Server (Git)
+   4. Guide, comments & other social interactions 
 3. Next I will change some technologies (V3):
    1. gRPC for communication between MS.
    2. Config Server (Vault)

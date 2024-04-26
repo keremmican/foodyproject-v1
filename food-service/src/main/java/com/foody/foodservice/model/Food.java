@@ -19,7 +19,7 @@ import java.math.BigDecimal;
 public class Food extends BaseEntity {
     private String name;
     private String description;
-    private Double rating;
+    private Double rating = 0.0;
     private String imageUrl;
     private BigDecimal price;
 }
