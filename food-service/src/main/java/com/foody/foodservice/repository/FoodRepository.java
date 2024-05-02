@@ -4,11 +4,15 @@ import com.foody.commonlib.base.BaseRepository;
 import com.foody.foodservice.mapper.FoodRowMapper;
 import com.foody.foodservice.model.Food;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.PageImpl;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+
+import java.util.List;
 import java.util.Optional;
-import java.util.Random;
 
 @Repository
 @RequiredArgsConstructor
@@ -47,5 +51,22 @@ public class FoodRepository implements BaseRepository<Food, Long> {
     public void deleteById(Long id) {
         String query = "DELETE FROM food WHERE id = ?";
         jdbcTemplate.update(query, id);
+    }
+
+    @Override
+    public Page<Food> getAllPageable(Pageable pageable) {
+        String query = "SELECT * FROM food";
+        String countQuery = "SELECT count(*) FROM food";
+
+        if (pageable.getSort().isSorted()) {
+            query += " ORDER BY " + pageable.getSort().toString().replace(":", "");
+        }
+
+        query += " LIMIT " + pageable.getPageSize() + " OFFSET " + pageable.getOffset();
+
+        List<Food> foodList = jdbcTemplate.query(query, new FoodRowMapper());
+        Long totalElements = jdbcTemplate.queryForObject(countQuery, Long.class);
+
+        return new PageImpl<>(foodList, pageable, totalElements);
     }
 }

@@ -3,12 +3,13 @@ package com.foody.foodservice.service;
 import com.foody.foodservice.dto.FoodDto;
 import com.foody.foodservice.dto.request.CreateFoodRequestDto;
 import com.foody.foodservice.dto.request.UpdateFoodRequestDto;
-import com.foody.foodservice.exception.ServiceException;
 import com.foody.foodservice.mapper.FoodMapper;
 import com.foody.foodservice.model.Food;
 import com.foody.foodservice.repository.FoodRepository;
 import jakarta.ws.rs.NotFoundException;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -43,5 +44,10 @@ public class FoodService {
 
     private Food findFoodById(Long id) {
         return foodRepository.findById(id).orElseThrow(NotFoundException::new);
+    }
+
+    public Page<FoodDto> getAllFoodsPageable(int index, int size) {
+        Page<Food> foodEntities = foodRepository.getAllPageable(PageRequest.of(index, size));
+        return foodEntities.map(FoodMapper::toFoodDto);
     }
 }

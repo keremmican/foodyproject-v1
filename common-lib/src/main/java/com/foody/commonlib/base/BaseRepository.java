@@ -1,5 +1,7 @@
 package com.foody.commonlib.base;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import java.util.Optional;
 
 public interface BaseRepository<T, U> {
@@ -8,4 +10,5 @@ public interface BaseRepository<T, U> {
     void delete(T object);
     Optional<T> findById(U id);
     void deleteById(U id);
+    Page<T> getAllPageable(Pageable pageable);
 }

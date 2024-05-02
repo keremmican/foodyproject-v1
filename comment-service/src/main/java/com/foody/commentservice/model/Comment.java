@@ -24,5 +24,6 @@ public class Comment extends BaseEntity {
     private Double rating;
 
     private Long foodId;
+    private Long restaurantId;
     private Long userId;
 }
