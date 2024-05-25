@@ -1,6 +1,8 @@
 package com.foody.commentservice.repository;
 
 import com.foody.commonlib.base.BaseRepository;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
@@ -30,5 +32,10 @@ public class CommentRepository implements BaseRepository {
     @Override
     public void deleteById(Object id) {
 
+    }
+
+    @Override
+    public Page getAllPageable(Pageable pageable) {
+        return null;
     }
 }

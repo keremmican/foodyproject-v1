@@ -15,7 +15,5 @@ import java.util.List;
 public class MenuCategory extends BaseEntity {
     private String name;
     private String description;
-
-
     private List<Long> foodList;
 }
